@@ -55,10 +55,10 @@ button.addEventListener('click', () => {
 		e.style.color = "lightgreen";
 	}
 	function editItem(e) {
-		e.querySelectorAll("i");
-		console.log(e.querySelectorAll("i"))
-		//var editid = document.getElementById("edit" + id);
-		//console.log(editid);
+		//e.querySelectorAll("i");
+		//console.log(e.querySelectorAll("i"))
+		var editid = document.getElementById("edit" + id);
+		console.log(editid);
 		e.classList.toggle('fa-pen-to-square');
 		e.classList.toggle('fa-floppy-disk');
 		if (e.classList.contains("fa-pen-to-square")) {
