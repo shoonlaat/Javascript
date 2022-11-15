@@ -58,20 +58,20 @@ button.addEventListener('click', () => {
      if (e.classList.contains("fa-pen-to-square")) {
       var txt = e.parentElement.previousSibling;
        txt.disabled = true;
+       e.nextSibling.style.pointerEvents = "auto";
+       e.previousSibling.style.pointerEvents = "auto";
     }
      else {
        var txt = e.parentElement.previousSibling;
-       e.nextSibling.style.pointerEvents = "none";
-       e.previousSibling.style.pointerEvents = "none";
        txt.disabled = false;
        var testid = document.getElementById(listInput.id);
        const testword = testid.value.length;
        console.log(testword);
        testid.focus();
        testid.setSelectionRange(testword, testword);
-       e.nextSibling.style.pointerEvents = "auto";
-       e.previousSibling.style.pointerEvents = "auto";
-      // testid.setSelectionRange(2, 5);
+       e.nextSibling.style.pointerEvents = "none";
+       e.previousSibling.style.pointerEvents = "none";
+
     }
   
   }
