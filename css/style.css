@@ -1,0 +1,76 @@
+*{
+  box-sizing: border-box;
+}
+body{
+  width: 100%;
+  margin:0 auto;
+  line-height: 1.6;
+  vertical-align: middle;
+  background-color: #e1a8bb;
+
+}
+.container {
+  width: 900px;
+  margin:0 auto;
+}
+.inner{
+  width: 500px;
+  margin:0 auto;
+}
+h1{
+  font-size: 30px;
+  text-align: center;
+  padding: 20px 0 10px;
+  font-weight: bold;
+}
+.input-block .input-gp{
+  display: flex;
+  align-items: center;
+}
+.input-block .alert_message{
+  font-weight: bold;
+  font-size: 16px;
+  color: #ff0000;
+}
+input{
+  width: 90%;
+  margin:0 auto;
+  outline: none;
+  border: 1px solid #fff;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #fff;
+  color: #000;
+}
+.input-block .btn{
+  background-color: unset;
+  border:none;
+  outline:none;
+}
+.input-block .btn .fa-circle-plus{
+  font-size: 30px;
+  color: #fff;
+}
+.section-block{
+  margin-top: 50px;
+}
+h2{
+  font-size: 25px;
+  font-weight: bold;
+}
+.section-block .list{
+  position: relative;
+  margin-bottom: 20px;
+}
+.section-block input{
+  width: 100%;
+}
+.section-block .btn-gp{
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform:  translateY(-50%);
+}
+.section-block .btn-gp .fa-pen-to-square,.section-block .btn-gp .fa-circle-check,.section-block .btn-gp .fa-floppy-disk{
+   margin-right: 20px;
+}
