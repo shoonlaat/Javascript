@@ -17,6 +17,7 @@ button.addEventListener('click', () => {
 		listgp.className = "list";
 		sectionlist.appendChild(listgp);
 		var listInput = document.createElement("INPUT");
+		listInput.id = "inputbox" + id;
 		listInput.className = "inputbox";
 		listInput.setAttribute("type", "text");
 		listInput.setAttribute("size", "30");
@@ -26,11 +27,13 @@ button.addEventListener('click', () => {
 		document.getElementById("input").value = "";
 		var btngp = document.createElement("div");
 		btngp.className = "btn-gp";
-		btngp.innerHTML = '<i class="fa-solid fa-circle-check success" id="success"></i>' + '<i class="fa-solid fa-pen-to-square edit" id="edit"></i>' + '<i class="fa-solid fa-trash delete" id="delete"></i>';
+		btngp.innerHTML = '<i class="fa-solid fa-circle-check success" id="success"></i>' + '<i class="fa-solid fa-pen-to-square edit" id="edit' + id + '"></i>' + '<i class="fa-solid fa-trash delete" id="delete"></i>';
+		console.log("edit" + id);
 		listgp.appendChild(btngp);
 		document.querySelectorAll('.success').forEach(element => {
 			element.onclick = () => successItem(element);
 		})
+		id = id + 1;
 	}
 	document.querySelectorAll('.delete').forEach(element => {
 		element.onclick = () => deleteItem(element);
@@ -40,7 +43,7 @@ button.addEventListener('click', () => {
 	})
 	function deleteItem(e) {
 		var result = confirm("Are you Sure Want To Delete");
-      if (result) {
+        if (result) {
 		e.parentElement.previousSibling.parentElement.remove();
         }
 	}
@@ -52,31 +55,34 @@ button.addEventListener('click', () => {
 		e.style.color = "lightgreen";
 	}
 	function editItem(e) {
+		e.querySelectorAll("i");
+		console.log(e.querySelectorAll("i"))
+		//var editid = document.getElementById("edit" + id);
+		//console.log(editid);
 		e.classList.toggle('fa-pen-to-square');
 		e.classList.toggle('fa-floppy-disk');
 		if (e.classList.contains("fa-pen-to-square")) {
+			//alert("fa-pen-to-square");
 			var txt = e.parentElement.previousSibling;
 			txt.disabled = true;
 			e.nextSibling.style.pointerEvents = "auto";
 			e.previousSibling.style.pointerEvents = "auto";
 			document.getElementById("input").removeAttribute("disabled", "disabled");
 			document.getElementById("btn").removeAttribute("disabled", "disabled");
-			document.querySelector(".fa-pen-to-square").style.color = "#000";
 		}
 		else {
+			//alert("fa-floppy-disk");
 			var txt = e.parentElement.previousSibling;
 			txt.disabled = false;
-			var testid = document.querySelector(".inputbox");
-			console.log(testid);
+			var testid = document.getElementById(listInput.id);
 			const testword = testid.value.length;
-			console.log(testword);
+			//console.log(testword);
 			testid.focus();
 			testid.setSelectionRange(testword, testword);
 			e.nextSibling.style.pointerEvents = "none";
 			e.previousSibling.style.pointerEvents = "none";
 			document.getElementById("input").setAttribute("disabled", "disabled");
 			document.getElementById("btn").setAttribute("disabled", "disabled");
-			document.querySelector(".fa-floppy-disk").style.color = "#e1a8bb";
 		}
 
 	}
