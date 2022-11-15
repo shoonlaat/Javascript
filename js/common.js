@@ -17,7 +17,6 @@ button.addEventListener('click', () => {
 		listgp.className = "list";
 		sectionlist.appendChild(listgp);
 		var listInput = document.createElement("INPUT");
-		listInput.id = "inputbox" + id;
 		listInput.className = "inputbox";
 		listInput.setAttribute("type", "text");
 		listInput.setAttribute("size", "30");
@@ -32,7 +31,6 @@ button.addEventListener('click', () => {
 		document.querySelectorAll('.success').forEach(element => {
 			element.onclick = () => successItem(element);
 		})
-		id = id + 1;
 	}
 	document.querySelectorAll('.delete').forEach(element => {
 		element.onclick = () => deleteItem(element);
@@ -64,7 +62,8 @@ button.addEventListener('click', () => {
 		else {
 			var txt = e.parentElement.previousSibling;
 			txt.disabled = false;
-			var testid = document.getElementById(listInput.id);
+			var testid = document.querySelector(".inputbox");
+			console.log(testid);
 			const testword = testid.value.length;
 			console.log(testword);
 			testid.focus();
