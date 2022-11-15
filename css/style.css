@@ -1,80 +1,98 @@
-*{
+* {
   box-sizing: border-box;
 }
-body{
+
+body {
   width: 100%;
-  margin:0 auto;
   line-height: 1.6;
-  vertical-align: middle;
+  margin: 0 auto;
   background-color: #e1a8bb;
+  vertical-align: middle;
 
 }
+
 .container {
   width: 900px;
-  margin:0 auto;
+  margin: 0 auto;
 }
-.inner{
+
+.inner {
   width: 500px;
-  margin:0 auto;
+  margin: 0 auto;
 }
-h1{
-  font-size: 30px;
-  text-align: center;
+
+h1 {
   padding: 20px 0 10px;
+  font-size: 30px;
   font-weight: bold;
+  text-align: center;
 }
-.input-block .input-gp{
+
+.input-block .input-gp {
   display: flex;
   align-items: center;
 }
-.input-block .alert_message{
-  font-weight: bold;
-  font-size: 16px;
+
+.input-block .alert_message {
   color: #ff0000;
+  font-size: 16px;
+  font-weight: bold;
 }
-input{
+
+input {
   width: 90%;
-  margin:0 auto;
-  outline: none;
-  border: 1px solid #fff;
+  margin: 0 auto;
   padding: 10px;
-  border-radius: 10px;
+  border: 1px solid #fff;
   background-color: #fff;
   color: #000;
+  outline: none;
+  border-radius: 10px;
 }
-.input-block .btn{
+
+.input-block .btn {
+  border: none;
   background-color: unset;
-  border:none;
-  outline:none;
+  outline: none;
 }
-.input-block .btn .fa-circle-plus{
-  font-size: 30px;
+
+.input-block .btn .fa-circle-plus {
   color: #fff;
+  font-size: 30px;
 }
-.section-block{
+
+.section-block {
   margin-top: 50px;
 }
-h2{
+
+h2 {
   font-size: 25px;
   font-weight: bold;
 }
-.section-block .list{
+
+.section-block .list {
   position: relative;
   margin-bottom: 20px;
 }
-.section-block input{
+
+.section-block input {
   width: 100%;
 }
-.section-block .btn-gp{
+
+.section-block .btn-gp {
   position: absolute;
   top: 50%;
   right: 20px;
-  transform:  translateY(-50%);
+  transform: translateY(-50%);
 }
-.section-block .btn-gp .fa-pen-to-square,.section-block .btn-gp .fa-circle-check,.section-block .btn-gp .fa-floppy-disk{
-   margin-right: 20px;
-   cursor: pointer;
+
+.section-block .btn-gp .fa-pen-to-square,
+.section-block .btn-gp .fa-circle-check,
+.section-block .btn-gp .fa-floppy-disk {
+  margin-right: 20px;
+  cursor: pointer;
 }
-.fa-trash{
+
+.fa-trash {
   cursor: pointer;
 }
