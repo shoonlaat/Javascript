@@ -1,4 +1,5 @@
 const button = document.getElementById("btn");
+var id = 0;
 button.addEventListener('click', () => {
   var inputValue = document.getElementById("input").value;
   console.log(inputValue);
@@ -16,7 +17,10 @@ button.addEventListener('click', () => {
     listgp.className = "list";
     sectionlist.appendChild(listgp);
     var listInput = document.createElement("INPUT");
+    listInput.id = "inputbox" + id;
+    listInput.className = "inputbox";
     listInput.setAttribute("type", "text");
+    listInput.setAttribute("size", "30");
     listInput.setAttribute("value", inputValue);
     listInput.setAttribute('disabled','disabled');
     listgp.appendChild(listInput);
@@ -27,7 +31,8 @@ button.addEventListener('click', () => {
     listgp.appendChild(btngp);
     document.querySelectorAll('.success').forEach(element => {
       element.onclick = () => successItem(element);
-  })
+    })
+    id = id + 1;
   }
   document.querySelectorAll('.delete').forEach(element => {
       element.onclick = () => deleteItem(element);
@@ -42,6 +47,7 @@ button.addEventListener('click', () => {
   }
   function successItem(e) {
     var txt = e.parentElement.previousSibling;
+    e.nextSibling.style.pointerEvents = "none";
     txt.style.color = "lightgreen";
     txt.style.border = "1px solid lightgreen";
     e.style.color = "lightgreen";
@@ -51,11 +57,21 @@ button.addEventListener('click', () => {
     e.classList.toggle('fa-floppy-disk');
      if (e.classList.contains("fa-pen-to-square")) {
       var txt = e.parentElement.previousSibling;
-      txt.disabled = true;
+       txt.disabled = true;
     }
-    else {
-      var txt = e.parentElement.previousSibling;
-      txt.disabled = false;
+     else {
+       var txt = e.parentElement.previousSibling;
+       e.nextSibling.style.pointerEvents = "none";
+       e.previousSibling.style.pointerEvents = "none";
+       txt.disabled = false;
+       var testid = document.getElementById(listInput.id);
+       const testword = testid.value.length;
+       console.log(testword);
+       testid.focus();
+       testid.setSelectionRange(testword, testword);
+       e.nextSibling.style.pointerEvents = "auto";
+       e.previousSibling.style.pointerEvents = "auto";
+      // testid.setSelectionRange(2, 5);
     }
   
   }

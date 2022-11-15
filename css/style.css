@@ -73,4 +73,5 @@ h2{
 }
 .section-block .btn-gp .fa-pen-to-square,.section-block .btn-gp .fa-circle-check,.section-block .btn-gp .fa-floppy-disk{
    margin-right: 20px;
+   cursor: pointer;
 }
