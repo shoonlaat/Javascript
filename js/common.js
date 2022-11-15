@@ -43,9 +43,9 @@ button.addEventListener('click', () => {
 	})
 	function deleteItem(e) {
 		var result = confirm("Are you Sure Want To Delete");
-        if (result) {
-		e.parentElement.previousSibling.parentElement.remove();
-        }
+		if (result) {
+			e.parentElement.previousSibling.parentElement.remove();
+		}
 	}
 	function successItem(e) {
 		var txt = e.parentElement.previousSibling;
@@ -55,36 +55,51 @@ button.addEventListener('click', () => {
 		e.style.color = "lightgreen";
 	}
 	function editItem(e) {
-		//e.querySelectorAll("i");
-		//console.log(e.querySelectorAll("i"))
-		var editid = document.getElementById("edit" + id);
-		console.log(editid);
+		console.log(e.id);
+		//alert(editid)
 		e.classList.toggle('fa-pen-to-square');
 		e.classList.toggle('fa-floppy-disk');
-		if (e.classList.contains("fa-pen-to-square")) {
-			//alert("fa-pen-to-square");
+		if (e.classList.contains("fa-floppy-disk")) {
+			for (i = 0; i < id; i++) {
+				var idname = "edit" + i;
+				if (idname != e.id) {
+					document.getElementById(idname).style.pointerEvents = "none";
+				}
+				else {
+					document.getElementById(idname).style.pointerEvents = "auto";
+				}
+			}
+			console.log(e);
+			e.style.pointerEvents = "auto";
+			e.style.color = "#e1a8bb";
+			e.nextSibling.style.pointerEvents = "none";
+			e.previousSibling.style.pointerEvents = "none";
 			var txt = e.parentElement.previousSibling;
-			txt.disabled = true;
+			console.log(txt);
+			txt.focus();
+			txt.disabled = false;
+			document.getElementById("input").setAttribute("disabled", "disabled");
+			document.getElementById("btn").setAttribute("disabled", "disabled");
+			var testid = document.getElementById(listInput.id);
+			console.log(testid);
+			const testword = testid.value.length;
+			console.log(testword);
+			testid.focus();
+			testid.setSelectionRange(testword, testword);
+		}
+		else {
+			e.style.color = "#000";
 			e.nextSibling.style.pointerEvents = "auto";
 			e.previousSibling.style.pointerEvents = "auto";
 			document.getElementById("input").removeAttribute("disabled", "disabled");
 			document.getElementById("btn").removeAttribute("disabled", "disabled");
+			e.nextSibling.style.pointerEvents = "auto";
+			e.previousSibling.style.pointerEvents = "auto";
+			for (i = 0; i < id; i++) {
+				var idname = "edit" + i;
+				document.getElementById(idname).style.pointerEvents = "auto";
+			}
 		}
-		else {
-			//alert("fa-floppy-disk");
-			var txt = e.parentElement.previousSibling;
-			txt.disabled = false;
-			var testid = document.getElementById(listInput.id);
-			const testword = testid.value.length;
-			//console.log(testword);
-			testid.focus();
-			testid.setSelectionRange(testword, testword);
-			e.nextSibling.style.pointerEvents = "none";
-			e.previousSibling.style.pointerEvents = "none";
-			document.getElementById("input").setAttribute("disabled", "disabled");
-			document.getElementById("btn").setAttribute("disabled", "disabled");
-		}
-
 	}
 
 });
