@@ -54,6 +54,7 @@ input {
   border: none;
   background-color: unset;
   outline: none;
+  cursor: pointer;
 }
 
 .input-block .btn .fa-circle-plus {

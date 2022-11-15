@@ -39,9 +39,10 @@ button.addEventListener('click', () => {
 		element.onclick = () => editItem(element);
 	})
 	function deleteItem(e) {
-		console.log(e);
+		var result = confirm("Are you Sure Want To Delete");
+      if (result) {
 		e.parentElement.previousSibling.parentElement.remove();
-		console.log(e.parentElement.previousSibling.parentElement);
+        }
 	}
 	function successItem(e) {
 		var txt = e.parentElement.previousSibling;
@@ -58,6 +59,9 @@ button.addEventListener('click', () => {
 			txt.disabled = true;
 			e.nextSibling.style.pointerEvents = "auto";
 			e.previousSibling.style.pointerEvents = "auto";
+			document.getElementById("input").removeAttribute("disabled", "disabled");
+			document.getElementById("btn").removeAttribute("disabled", "disabled");
+			document.querySelector(".fa-pen-to-square").style.color = "#000";
 		}
 		else {
 			var txt = e.parentElement.previousSibling;
@@ -70,6 +74,9 @@ button.addEventListener('click', () => {
 			testid.setSelectionRange(testword, testword);
 			e.nextSibling.style.pointerEvents = "none";
 			e.previousSibling.style.pointerEvents = "none";
+			document.getElementById("input").setAttribute("disabled", "disabled");
+			document.getElementById("btn").setAttribute("disabled", "disabled");
+			document.querySelector(".fa-floppy-disk").style.color = "#e1a8bb";
 		}
 
 	}
